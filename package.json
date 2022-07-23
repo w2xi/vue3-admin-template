@@ -8,14 +8,18 @@
     "test:unit": "vitest --environment jsdom"
   },
   "dependencies": {
+    "element-plus": "^2.2.10",
     "pinia": "^2.0.16",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2"
   },
   "devDependencies": {
+    "@element-plus/icons-vue": "^2.0.6",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/test-utils": "^2.0.2",
     "jsdom": "^20.0.0",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2",
     "vite": "^3.0.1",
     "vitest": "^0.18.1"
   }
