@@ -80,6 +80,7 @@ function submit() {
 }
 
 .el-input {
+  font-size: 16px;
   :deep(.el-input-group__prepend) {
     background-color: #363b41;
     box-shadow: none;
@@ -94,11 +95,22 @@ function submit() {
     color: #eee;
     background-color: #3b4148;
   }
+  :deep(.el-input__inner):focus {
+    background-color: #434a52;
+  }
+  :deep(.el-input__inner):hover {
+    background-color: #434a52;
+  }
 }
 
 .login-btn {
   width: 100%;
   padding: 1.6rem 0;
   margin-top: 5px;
+}
+.login-btn:focus,
+.login-btn:hover {
+  background-color: var(--el-button-active-bg-color);
+  border-color: var(--el-button-active-bg-color);;
 }
 </style>
