@@ -15,7 +15,14 @@ const userApi = {
       url: '/api/user/logout',
       method: 'POST',
     });
-  }
+  },
+
+  menus() {
+    return request({
+      url: '/api/app/menus',
+      method: 'GET',
+    });
+  },
 };
 
 export default userApi;

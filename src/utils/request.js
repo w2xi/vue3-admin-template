@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ElMessageBox, ElMessage } from 'element-plus';
-import { useUserStore } from '../stores';
+import { useAppStore } from '../stores';
 import { getToken } from './auth';
 
 
@@ -70,7 +70,7 @@ service.interceptors.response.use(
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
-          const userStore = useUserStore()
+          const userStore = useAppStore()
           userStore.resetToken().then(() => {
             location.reload()
           })

@@ -1,6 +1,32 @@
 {
   "paths": {
-    "/api/user/login": {}
+    "/api/user/login": {},
+    "/api/app/menus": {
+      "get": {
+        "description": "获取菜单列表",
+        "parameters": {
+          "header": {
+            "table": [
+              {
+                "name": "token",
+                "example": "5ac8Ae23-FBd0-ec9d-A65c-68bB4A2f472A",
+                "required": true,
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "responses": {
+          "200": {
+            "example": {
+              "useDataType": "custom",
+              "custom": "{\ncode: 0,\ndata: [\n    {\n    name: 'Demo',\n    children: [\n      {\n        name: 'Markdown',\n        path: '/markdown',\n        icon: '',\n      },\n      {\n        name: 'CircleProgress',\n        path: '/circle-progress',\n        icon: '',\n      },\n      {\n        name: 'TodoApp',\n        path: '/todo-app',\n        icon: '',\n      },\n      {\n        name: 'Video',\n        path: '/video',\n        icon: '',\n      },\n      {\n        name: 'AMap',\n        path: '/amap',\n        icon: '',\n      }\n    ],\n  }\n]\n}",
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
   },
   "disable": []
 }

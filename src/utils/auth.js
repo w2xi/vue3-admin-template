@@ -17,10 +17,14 @@ function setUserInfo(value) {
   localStorage.setItem(USER_KEY, JSON.stringify(value));
 }
 
+function clearStorage() {
+  localStorage.clear();
+}
 
 export {
   getToken,
   setToken,
   getUserInfo,
   setUserInfo,
+  clearStorage,
 };

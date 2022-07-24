@@ -36,6 +36,13 @@ module.exports = util => {
         })
         res.json(json)
       },
+
+      '/api/user/logout' (req, res) {
+        res.json({
+          code: 0,
+          data: null,
+        });
+      },
     },
     static: [],
     resHandleReplay: ({req, res}) => wrapApiData({code: 200, data: {}}),
