@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 import { Lock, User } from '@element-plus/icons-vue';
-import { useUserStore } from '../stores';
+import { useAppStore } from '../stores';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 
 const router = useRouter();
-const userStore = useUserStore();
+const userStore = useAppStore();
 const formRef = ref(null);
 const loading = ref(false);
 const form = ref({
@@ -27,6 +27,8 @@ function submit() {
     if (valid) {
       if (form.value.username === 'admin' && form.value.password === 'admin') {
         userStore.login(form.value).then(() => {
+          return userStore.getMenus();
+        }).then(() => {
           router.push('/');
         });
       } else {
