@@ -1,11 +1,16 @@
 import { defineStore } from 'pinia';
 import userApi from '../api/user';
-import { setToken, setUserInfo } from '../utils/auth';
+import router, { resetRouter } from '../router';
+import { setToken, setUserInfo, getUserInfo, clearStorage } from '../utils/auth';
+import createRoutes from '../utils/createRoutes';
 
-export const useUserStore = defineStore({
+const userInfo = getUserInfo();
+
+export const useAppStore = defineStore({
   id: 'user',
   state: () => ({
-    userInfo: {},
+    userInfo,
+    menus: [],
   }),
   actions: {
     login(data) {
@@ -16,10 +21,43 @@ export const useUserStore = defineStore({
           setToken(res.data.accessToken);
 
           resolve();
-        }).catch(() => {
+        }).catch(err => {
+          console.log(err);
           reject();
         })
       });
-    }
+    },
+
+    getMenus() {
+      return new Promise((resolve, reject) => {
+        userApi.menus().then(res => {
+          this.menus = res.data;
+          const routes = createRoutes(res.data);
+          routes.forEach(route => router.addRoute(route));
+
+          // [resolved]: 解决刷新页面 导致当前路由丢失
+          const currRoutePath = router.currentRoute.value.path
+          router.push(currRoutePath);
+
+          resolve();
+        }).catch(err => {
+          console.log(err);
+          reject();
+        })
+      })
+    },
+
+    logout() {
+      return new Promise((resolve, reject) => {
+        userApi.logout().then(() => {
+          clearStorage();
+          resetRouter();
+          resolve();
+        }).catch(err => {
+          console.log(err);
+          reject();
+        });
+      });
+    },
   },
 });
