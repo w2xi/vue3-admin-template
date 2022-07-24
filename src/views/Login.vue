@@ -1,12 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 import { Lock, User } from '@element-plus/icons-vue';
+import { useUserStore } from '../stores';
+import { useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus';
 
+const router = useRouter();
+const userStore = useUserStore();
 const formRef = ref(null);
 const loading = ref(false);
 const form = ref({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: 'admin',
 });
 const formRules = ref({
   username: [
@@ -20,7 +25,16 @@ const formRules = ref({
 function submit() {
   formRef.value.validate(valid => {
     if (valid) {
-      // ...
+      if (form.value.username === 'admin' && form.value.password === 'admin') {
+        userStore.login(form.value).then(() => {
+          router.push('/');
+        });
+      } else {
+        ElMessage({
+          type: 'error',
+          message: '用户或密码不正确',
+        })
+      }
     }
   })
 }
