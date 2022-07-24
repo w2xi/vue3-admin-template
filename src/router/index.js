@@ -1,15 +1,24 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../views/Login.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import Login from '../views/Login.vue';
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login,
-    }
-  ]
-})
+const constantRoutes = [
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+];
 
-export default router
+const _createRouter = () => createRouter({
+  history: createWebHashHistory(),
+  routes: constantRoutes,
+});
+
+const router = _createRouter();
+
+export function resetRouter() {
+  const newRouter = _createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
+
+export default router;
