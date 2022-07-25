@@ -58,6 +58,7 @@ $transitionTime: .28s;
 .sidebar-container {
   position: relative;
   width: $sideBarWidth !important;
+  height: 100%;
   transition: width $transitionTime;
   overflow: hidden;
 }

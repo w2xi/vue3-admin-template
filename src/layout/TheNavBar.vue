@@ -24,9 +24,7 @@ function handleCommand(command) {
 
 <template>
   <el-header height="56px">
-    <div class="logo-wrapper">
-      <img src="@/assets/logo.svg" alt="logo" width="40" height="40" />
-    </div>
+    <div class="breadcrumd"></div>
     <div class="account-info">
       <el-avatar :size="40">
         <img class="user-avatar" src="https://p9-passport.byteacctimg.com/img/user-avatar/ef1f2ee291b5c8607e76a854f04f748b~300x300.image" alt="user-avatar" />
@@ -34,7 +32,7 @@ function handleCommand(command) {
       <el-dropdown trigger="click" @command="handleCommand">
         <span class="el-dropdown-link">
           {{ userName }}
-          <i class="el-icon-arrow-down el-icon--right"></i>
+          <el-icon class="el-icon--right"><ArrowDown /></el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -48,13 +46,15 @@ function handleCommand(command) {
 
 <style lang="scss" scoped>
 .el-header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #304156;
-  color: #333;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  .breadcrumd {
+    width: 100px;
+  }
   .account-info {
     display: flex;
     align-items: center;
@@ -74,11 +74,10 @@ function handleCommand(command) {
   margin-right: 10px;
 }
 
-.el-dropdown {
-  color: #fff;
-}
-
 .el-dropdown-link {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
   cursor: pointer;
 }
 </style>

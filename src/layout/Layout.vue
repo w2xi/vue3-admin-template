@@ -1,14 +1,14 @@
 <script setup>
-import TheHeader from './TheHeader.vue';
+import TheNavBar from './TheNavBar.vue';
 import TheAside from './TheAside.vue';
 import TheMain from './TheMain.vue';
 </script>
 
 <template>
-  <el-container class="is-vertical">
-    <TheHeader />
-    <el-container>
-      <TheAside />
+  <el-container>
+    <TheAside />
+    <el-container class="is-vertical">
+      <TheNavBar />
       <TheMain />
     </el-container>
   </el-container>
