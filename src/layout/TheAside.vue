@@ -28,7 +28,9 @@ const isCollapse = ref(false);
             :key="index"
           >
             <template #title>
-              <i :class="item.icon"></i>
+              <el-icon :size="16">
+                <component :is="item.icon"></component>
+              </el-icon>
               <span>{{ item.name }}</span>
             </template>
             <el-menu-item
@@ -36,7 +38,9 @@ const isCollapse = ref(false);
               :index="child.path"
               :key="index"
             >
-              <i :class="child.icon"></i>
+              <el-icon :size="16" v-if="child.icon">
+                <component :is="child.icon"></component>
+              </el-icon>
               <span>{{ child.name }}</span>
             </el-menu-item>
           </el-sub-menu>
