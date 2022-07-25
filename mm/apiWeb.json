@@ -20,7 +20,7 @@
           "200": {
             "example": {
               "useDataType": "custom",
-              "custom": "{\ncode: 0,\ndata: [\n    {\n    name: 'Demo',\n    children: [\n      {\n        name: 'Markdown',\n        path: '/markdown',\n        icon: '',\n      },\n      {\n        name: 'CircleProgress',\n        path: '/circle-progress',\n        icon: '',\n      },\n      {\n        name: 'TodoApp',\n        path: '/todo-app',\n        icon: '',\n      },\n      {\n        name: 'Video',\n        path: '/video',\n        icon: '',\n      },\n      {\n        name: 'AMap',\n        path: '/amap',\n        icon: '',\n      }\n    ],\n  }\n]\n}",
+              "custom": "{\ncode: 0,\ndata: [\n    {\n    name: 'Demo',\n    icon: 'Menu',\n    children: [\n      {\n        name: 'Markdown',\n        path: '/markdown',\n        icon: '',\n      },\n      {\n        name: 'CircleProgress',\n        path: '/circle-progress',\n        icon: '',\n      },\n      {\n        name: 'TodoApp',\n        path: '/todo-app',\n        icon: '',\n      },\n      {\n        name: 'Video',\n        path: '/video',\n        icon: '',\n      },\n      {\n        name: 'AMap',\n        path: '/amap',\n        icon: '',\n      }\n    ],\n  }\n]\n}",
               "type": "object"
             }
           }
