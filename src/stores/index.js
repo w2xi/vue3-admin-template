@@ -37,7 +37,7 @@ export const useAppStore = defineStore({
 
           // [resolved]: 解决刷新页面 导致当前路由丢失
           const currRoutePath = router.currentRoute.value.path
-          router.push(currRoutePath);
+          router.replace(currRoutePath);
 
           resolve();
         }).catch(err => {
