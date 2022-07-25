@@ -22,7 +22,7 @@ onMounted(() => {
       api: 'https://api.prprpr.me/dplayer/',
       addition: ['https://s-sh-17-dplayercdn.oss.dogecdn.com/1678963.json'],
     },
-    autoplay: true,
+    autoplay: false,
   });
 });
 </script>
@@ -35,6 +35,6 @@ onMounted(() => {
 #dplayer {
   height: calc(100vh - 150px);
   border-radius: 10px;
-  margin-right: 10px;
+  margin-top: 60px;
 }
 </style>

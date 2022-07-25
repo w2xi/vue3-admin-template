@@ -18,18 +18,22 @@ function init(map) {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <el-button type="primary" @click="mapInstance.setFitView()">setFitView</el-button>
-    <div class="map-page-container">
+    <div class="map-wrapper">
       <el-amap ref="amapRef" :center="center" :zoom="zoom" @init="init" />
     </div>
   </div>
 </template>
 
 <style scoped>
-.map-page-container {
+.container {
+  margin-top: 50px;
+}
+
+.map-wrapper {
   width: 100%;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 180px);
   margin-right: 10px;
 }
 
