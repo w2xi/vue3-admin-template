@@ -20,7 +20,11 @@ const menuTitle = computed(() => {
       </div>
     </div>
     <el-main>
-      <router-view></router-view>
+      <router-view v-slot="{ Component }">
+        <Transition name="fade-transform" mode="out-in">
+          <component :is="Component"></component>
+        </Transition>
+      </router-view>
     </el-main>
   </el-container>
 </template>

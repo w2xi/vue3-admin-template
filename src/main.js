@@ -4,11 +4,11 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 import ElementPlus from 'element-plus';
-import './permission';
-
 import 'element-plus/dist/index.css';
-import './assets/styles/normalize.css';
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
+import './assets/styles/index.css'
+
+import './permission';
 
 import globalComponents from './components/global';
 // plugin docs: https://vue-amap.guyixi.cn/

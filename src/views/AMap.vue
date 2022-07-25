@@ -18,9 +18,11 @@ function init(map) {
 </script>
 
 <template>
-  <el-button type="primary" @click="mapInstance.setFitView()">setFitView</el-button>
-  <div class="map-page-container">
-    <el-amap ref="amapRef" :center="center" :zoom="zoom" @init="init" />
+  <div>
+    <el-button type="primary" @click="mapInstance.setFitView()">setFitView</el-button>
+    <div class="map-page-container">
+      <el-amap ref="amapRef" :center="center" :zoom="zoom" @init="init" />
+    </div>
   </div>
 </template>
 
