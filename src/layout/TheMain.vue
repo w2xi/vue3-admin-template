@@ -13,7 +13,7 @@
 <style scoped>
 .el-main {
   overflow-x: hidden;
-  padding: 15px 0 13px 18px;
+  padding: 10px;
   background: #fff;
   color: #333;
   border-radius: 6px;

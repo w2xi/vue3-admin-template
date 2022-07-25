@@ -2,16 +2,15 @@ import Layout from '../layout/Layout.vue';
 
 export default function createRoutes(data){
   const children = [];
-  const redirect = data[0].children[0].path;
   const result = {
     children,
-    redirect,
     path: '/',
     component: Layout,
   };
   data.forEach(item => {
     generateRoutes(children, item);
   });
+  result.redirect = children[0].path;
 
   return [result];
 }

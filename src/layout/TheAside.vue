@@ -1,12 +1,17 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useAppStore } from '../stores';
 import { useRoute } from 'vue-router';
+import SideBarItem from './components/SideBarItem.vue';
 
 const appStore = useAppStore();
-const route = useRoute();
 const menus = ref(appStore.menus);
 const isCollapse = ref(false);
+
+const activeRoute = computed(() => {
+  const route = useRoute();
+  return route.path;
+});
 
 </script>
 
@@ -15,37 +20,18 @@ const isCollapse = ref(false);
     <el-menu
       background-color="#304156"
       text-color="#bfcbd9"
-      :default-active="route.path"
+      :default-active="activeRoute"
       :collapse="isCollapse"
       :collapse-transition="false"
       unique-opened
       router
     >
-      <template v-for="(item, index) of menus">
-        <template v-if="item.children && item.children.length">
-          <el-sub-menu
-            :index="index + ''"
-            :key="index"
-          >
-            <template #title>
-              <el-icon :size="16">
-                <component :is="item.icon"></component>
-              </el-icon>
-              <span>{{ item.name }}</span>
-            </template>
-            <el-menu-item
-              v-for="(child, index) of item.children"
-              :index="child.path"
-              :key="index"
-            >
-              <el-icon :size="16" v-if="child.icon">
-                <component :is="child.icon"></component>
-              </el-icon>
-              <span>{{ child.name }}</span>
-            </el-menu-item>
-          </el-sub-menu>
-        </template>
-      </template>
+      <SideBarItem 
+        v-for="(item,index) of menus" 
+        :item="item"
+        :base-path="item.path"
+        :key="index"
+      />
     </el-menu>
     <div class="toggle-sidebar" @click="isCollapse = !isCollapse">
       <el-icon v-if="isCollapse"><DArrowRight /></el-icon>
