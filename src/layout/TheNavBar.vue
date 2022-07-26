@@ -15,6 +15,8 @@ function handleCommand(command) {
         router.push(`/login?redirect=${route.fullPath}`);
       });
       break;
+    case 'navToProfile':
+      router.push('/profile');
     default:
       // ...
       break;
@@ -37,6 +39,7 @@ function handleCommand(command) {
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="logout">退出</el-dropdown-item>
+            <el-dropdown-item command="navToProfile">个人中心</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

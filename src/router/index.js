@@ -1,11 +1,24 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import Layout from '../layout/Layout.vue';
 import Login from '../views/Login.vue';
+import Profile from '../views/Profile.vue';
 
 const constantRoutes = [
   {
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '',
+    component: Layout,
+    children: [
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+      }
+    ]
   },
 ];
 
