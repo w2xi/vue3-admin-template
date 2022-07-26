@@ -27,10 +27,9 @@ const activeRoute = computed(() => {
       router
     >
       <SideBarItem 
-        v-for="(item,index) of menus" 
+        v-for="item of menus" 
         :item="item"
-        :base-path="item.path"
-        :key="index"
+        :key="item.path"
       />
     </el-menu>
     <div class="toggle-sidebar" @click="isCollapse = !isCollapse">

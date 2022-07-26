@@ -1,12 +1,30 @@
 <script setup>
 defineProps({
-  item: Object,
-  basePath: String,
+  item: {
+    type: Object,
+    required: true,
+  },
+  isNest: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
 <template>
-  <template v-if="item.children && item.children.length">
+  <el-menu-item 
+    v-if="!item.children"
+    :index="item.path" 
+    :key="item.path"
+  >
+    <template #title>
+      <el-icon :size="16" v-if="item.icon">
+        <component :is="item.icon"></component>
+      </el-icon>
+      <span>{{ item.name }}</span>
+    </template>
+  </el-menu-item>
+  <template v-else>
     <el-sub-menu :index="item.path">
       <template #title>
         <el-icon :size="16">
@@ -15,22 +33,13 @@ defineProps({
         <span>{{ item.name }}</span>
       </template>
       <SideBarItem
-        v-for="(child,index) of item.children"
+        v-for="child of item.children"
         :item="child"
-        :base-path="child.path"
-        :key="index"
-      >
-      </SideBarItem>
+        :key="child.path"
+      />
     </el-sub-menu>
   </template>
-  <template v-else>
-    <el-menu-item :index="item.path">
-      <template #title>
-        <el-icon :size="16" v-if="item.icon">
-          <component :is="item.icon"></component>
-        </el-icon>
-        <span>{{ item.name }}</span>
-      </template>
-    </el-menu-item>
-  </template>
 </template>
+
+<style lang="scss" scoped>
+</style>
