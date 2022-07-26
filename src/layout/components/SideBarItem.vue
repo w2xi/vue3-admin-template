@@ -17,10 +17,10 @@ defineProps({
     :index="item.path" 
     :key="item.path"
   >
+    <el-icon :size="16" v-if="item.icon">
+      <component :is="item.icon"></component>
+    </el-icon>
     <template #title>
-      <el-icon :size="16" v-if="item.icon">
-        <component :is="item.icon"></component>
-      </el-icon>
       <span>{{ item.name }}</span>
     </template>
   </el-menu-item>
