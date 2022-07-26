@@ -16,9 +16,10 @@ export default function createRoutes(data){
 }
 
 function generateRoutes(children, item){
-  if (item.path) {
+  const path = item.path;
+  if (path) {
     const route = {
-      path: item.path,
+      path,
       name: item.name,
       component: () => import(`@/views/${item.name}.vue`),
       meta: {

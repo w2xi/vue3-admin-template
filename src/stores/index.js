@@ -35,10 +35,6 @@ export const useAppStore = defineStore({
           const routes = createRoutes(res.data);
           routes.forEach(route => router.addRoute(route));
 
-          // [resolved]: 解决刷新页面 导致当前路由丢失
-          const currRoutePath = router.currentRoute.value.path
-          router.replace(currRoutePath);
-
           resolve();
         }).catch(err => {
           console.log(err);

@@ -27,10 +27,8 @@ function submit() {
     if (valid) {
       if (form.value.username === 'admin' && form.value.password === 'admin') {
         userStore.login(form.value).then(() => {
-          return userStore.getMenus();
-        }).then(() => {
-          router.push('/');
-        });
+          router.push('/dashboard');
+        })
       } else {
         ElMessage({
           type: 'error',
