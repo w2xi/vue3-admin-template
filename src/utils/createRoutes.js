@@ -5,6 +5,7 @@ export default function createRoutes(data){
   const result = {
     children,
     path: '/',
+    name: 'Root',
     component: Layout,
   };
   data.forEach(item => {

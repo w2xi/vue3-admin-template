@@ -10,11 +10,12 @@ const constantRoutes = [
     component: Login,
   },
   {
-    path: '',
+    path: '/user',
+    name: 'User',
     component: Layout,
     children: [
       {
-        path: '/profile',
+        path: 'profile',
         name: 'Profile',
         component: Profile,
       }
@@ -22,16 +23,18 @@ const constantRoutes = [
   },
 ];
 
-const _createRouter = () => createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes,
 });
 
-const router = _createRouter();
-
 export function resetRouter() {
-  const newRouter = _createRouter()
-  router.matcher = newRouter.matcher // reset router
+  router.getRoutes().forEach(route => {
+    const { name } = route;
+    if (name && router.hasRoute(name)) {
+      router.removeRoute(name);
+    }
+  });
 }
 
 export default router;
