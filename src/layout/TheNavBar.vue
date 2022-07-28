@@ -12,11 +12,11 @@ function handleCommand(command) {
   switch (command) {
     case 'logout':
       appStore.logout().finally(() => {
-        router.push(`/login?redirect=${route.fullPath}`);
+        location.replace('/login');
       });
       break;
     case 'navToProfile':
-      router.push('/profile');
+      router.push('/user/profile');
     default:
       // ...
       break;
