@@ -59,11 +59,15 @@ const list = ref([
     ],
   },
 ]);
+
+function clicked(item) {
+  console.log(item)
+}
 </script>
 
 <template>
   <div class="tree-container">
-    <VTree :data="list" />
+    <VTree :data="list" @click="clicked($event)" />
   </div>
 </template>
 

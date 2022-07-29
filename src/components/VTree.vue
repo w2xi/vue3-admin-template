@@ -5,8 +5,13 @@ defineProps({
     default() {
       return [];
     }
-  }
+  },
 });
+const emit = defineEmits(['click']);
+
+function click(item) {
+  emit('click', item);
+}
 </script>
 
 <template>
@@ -14,14 +19,15 @@ defineProps({
     <div 
       class="tree-item"
       v-for="item of data"
+      :key="item.label"
     >
-      <div class="tree-label">
+      <div class="tree-label" @click.stop="click(item)">
         <i class="icon" v-if="item.children && item.children.length">
           <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M384 192v640l384-320.064z"></path></svg>
         </i>
         {{ item.label }}
       </div>
-      <VTree :data="item.children" v-if="item.children && item.children.length" />
+      <VTree @click="click" :data="item.children" v-if="item.children && item.children.length" />
     </div>
   </div>
 </template>
