@@ -1,10 +1,22 @@
 import router from './router';
 import { getToken } from './utils/auth';
 import { useAppStore } from './stores';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 const whiteList = ['/login']; // no redirect whitelist
 
+NProgress.configure({
+  easing: 'ease',
+  speed: 500,
+  trickleSpeed: 200,
+  showSpinner: false,
+});
+
 router.beforeEach(async (to, from, next) => {
+  // start progress bar
+  NProgress.start();
+
   // set page title
   document.title = to.meta.title || '华为园区后台';
 
@@ -32,4 +44,8 @@ router.beforeEach(async (to, from, next) => {
       next(`/login?redirect=${to.path}`);
     }
   }
+});
+
+router.afterEach(() => {
+  NProgress.done();
 });
