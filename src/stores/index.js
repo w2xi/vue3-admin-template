@@ -11,6 +11,7 @@ export const useAppStore = defineStore({
   state: () => ({
     userInfo,
     menus: [],
+    routes: [],
   }),
   actions: {
     login(data) {
@@ -33,6 +34,8 @@ export const useAppStore = defineStore({
         userApi.menus().then(res => {
           this.menus = res.data;
           const routes = createRoutes(res.data);
+          this.routes = routes;
+          console.log(routes)
           routes.forEach(route => router.addRoute(route));
 
           resolve();

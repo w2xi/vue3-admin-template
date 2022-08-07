@@ -25,7 +25,8 @@ function generateRoutes(children, item){
       component: () => import(`@/views/${item.name}.vue`),
       meta: {
         title: item.name,
-        icon: item.icon
+        icon: item.icon,
+        affix: path === '/dashboard',
       },
     };
     children.push(route);

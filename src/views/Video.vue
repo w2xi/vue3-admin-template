@@ -33,7 +33,7 @@ onMounted(() => {
 
 <style scoped>
 #dplayer {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 200px);
   border-radius: 10px;
   margin-top: 60px;
 }

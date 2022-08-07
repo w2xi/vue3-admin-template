@@ -1,16 +1,16 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useAppStore } from '../stores';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import SideBarItem from './components/SideBarItem.vue';
 
+const router = useRouter();
 const appStore = useAppStore();
 const menus = ref(appStore.menus);
 const isCollapse = ref(false);
 
 const activeRoute = computed(() => {
-  const route = useRoute();
-  return route.path;
+  return router.currentRoute.value.fullPath;
 });
 
 </script>
@@ -23,7 +23,6 @@ const activeRoute = computed(() => {
       :default-active="activeRoute"
       :collapse="isCollapse"
       :collapse-transition="false"
-      unique-opened
       router
     >
       <SideBarItem 

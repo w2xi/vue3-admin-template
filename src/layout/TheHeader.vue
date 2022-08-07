@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import { useAppStore } from '../stores/index';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
+import TabBar from './components/TabBar.vue';
 
 const router = useRouter();
-const route = useRoute();
 const appStore = useAppStore();
 const userName = ref(appStore.userInfo.userName);
 
@@ -45,6 +45,7 @@ function handleCommand(command) {
       </el-dropdown>
     </div>
   </el-header>
+  <TabBar />
 </template>
 
 <style lang="scss" scoped>
@@ -53,7 +54,7 @@ function handleCommand(command) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
   z-index: 1;
   .breadcrumd {
     width: 100px;
@@ -82,5 +83,18 @@ function handleCommand(command) {
   align-items: center;
   font-size: 16px;
   cursor: pointer;
+}
+
+.tabs-tar-container > .el-tabs__content {
+  padding: 32px;
+  color: #6b778c;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.tab-item-wrapper {
+}
+.tab-item-title {
+  // padding-left: 2px;
 }
 </style>

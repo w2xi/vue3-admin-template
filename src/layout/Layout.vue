@@ -1,5 +1,5 @@
 <script setup>
-import TheNavBar from './TheNavBar.vue';
+import TheHeader from './TheHeader.vue';
 import TheAside from './TheAside.vue';
 import TheMain from './TheMain.vue';
 </script>
@@ -8,7 +8,7 @@ import TheMain from './TheMain.vue';
   <el-container>
     <TheAside />
     <el-container class="is-vertical">
-      <TheNavBar />
+      <TheHeader />
       <TheMain />
     </el-container>
   </el-container>

@@ -33,7 +33,7 @@ function init(map) {
 
 .map-wrapper {
   width: 100%;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 250px);
   margin-right: 10px;
 }
 

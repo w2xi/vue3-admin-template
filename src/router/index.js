@@ -18,6 +18,10 @@ const constantRoutes = [
         path: 'profile',
         name: 'Profile',
         component: Profile,
+        meta: {
+          title: 'Profile',
+          icon: 'UserFilled',
+        },
       }
     ]
   },
